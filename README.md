@@ -55,13 +55,21 @@ The goal is to showcase foundational data management, real-time simulation, and 
 
 📂 MedTechInnovators
  ├── 📂 src
- │     ├── generate_data.py      # Script to simulate patient flow data
- │     ├── validate_data.py      # Script to validate data quality
- │     ├── visualize_data.py     # Script for real-time visualization
+ │     ├── generate_data.py
+ │     ├── validate_data.py
+ │     ├── visualize_data.py
  ├── 📂 data
- │     ├── generated_data.csv    # Pre-generated data
- ├── README.md                   # Project documentation
- ├── requirements.txt            # Python dependencies
+ │     ├── generated_data.csv
+ ├── 📂 tests
+ │     ├── test_generate_data.py
+ │     ├── test_validate_data.py
+ ├── .github
+ │     ├── workflows
+ │         ├── ci.yml
+ ├── README.md
+ ├── requirements.txt
+ ├── LICENSE
+
 
 ```
 
