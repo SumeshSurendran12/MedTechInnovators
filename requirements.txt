@@ -1,0 +1,16 @@
+# Core libraries
+pandas==2.0.3        # For data handling and manipulation
+numpy==1.25.0        # For numerical operations
+matplotlib==3.8.1    # For data visualization
+
+# Optional libraries for enhanced functionality
+seaborn==0.12.2      # For advanced visualization (optional)
+
+# For database integration (if using SQLite)
+SQLAlchemy==2.1.0    # For database interaction (optional)
+
+# To manage time-related operations
+python-dateutil==2.8.2  # For handling timestamps and datetime operations
+
+# For development and testing (optional)
+pytest==7.4.0        # For testing scripts
