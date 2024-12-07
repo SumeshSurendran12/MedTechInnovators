@@ -12,13 +12,13 @@ The goal is to showcase foundational data management, real-time simulation, and 
 
 # System Architecture
 
-Input:
-    Simulated patient data (randomly generated in real time).
-Processing:
-    Validates the data for missing fields or incorrect department names.
-    Stores validated data in a .csv file for further analysis.
-Output:
-    Real-time bar charts showing the number of patients in each department.
+1. Input:
+    - Simulated patient data (randomly generated in real time).
+2. Processing:
+    - Validates the data for missing fields or incorrect department names.
+    - Stores validated data in a .csv file for further analysis.
+3. Output:
+    - Real-time bar charts showing the number of patients in each department.
 
 # System Diagram
 
