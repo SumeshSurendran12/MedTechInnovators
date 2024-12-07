@@ -1,13 +1,16 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python application
+# This workflow installs dependencies, runs tests, and performs linting for a Python application
+# For more information, see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python Application CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]  # Run on push to main and dev branches
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]  # Run on PRs targeting main or dev
 
 permissions:
   contents: read
@@ -18,22 +21,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Checkout the repository
     - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+
+    # Set up Python environment
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: "3.8"  # Use Python 3.8 or higher for compatibility
+        cache: pip  # Enable pip caching to speed up dependency installation
+
+    # Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # Lint Python files with flake8
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+        # Fail build on Python syntax errors or undefined names
+        flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats linting warnings as warnings
+        flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    # Run unit tests with pytest
+    - name: Run tests with pytest
       run: |
-        pytest
+        pytest tests/
+
+    # Upload test results (optional, useful for large projects)
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: tests/
