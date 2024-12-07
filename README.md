@@ -59,7 +59,7 @@ The goal is to showcase foundational data management, real-time simulation, and 
  │     ├── validate_data.py      # Script to validate data quality
  │     ├── visualize_data.py     # Script for real-time visualization
  ├── 📂 data
- │     ├── generated_data.csv       # Pre-generated sample data
+ │     ├── generated_data.csv    # Pre-generated data
  ├── README.md                   # Project documentation
  ├── requirements.txt            # Python dependencies
 
