@@ -34,7 +34,7 @@ Setup Instructions
 How to Run
 
 1. Clone this repository:
-    git clone <repository_url>
+    git clone <https://github.com/SumeshSurendran12/MedTechInnovators>
 
 2. Navigate to the project directory:
     cd MedTechInnovators
