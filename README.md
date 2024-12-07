@@ -29,27 +29,29 @@ The goal is to showcase foundational data management, real-time simulation, and 
 1. Install Python 3.8 or higher.
 2. Install the required libraries
 
-    ''' pip install -r requirements.txt '''
+``` pip install -r requirements.txt ```
 
 ## How to Run
 
 1. Clone this repository:
-    git clone <https://github.com/SumeshSurendran12/MedTechInnovators>
+``` git clone <https://github.com/SumeshSurendran12/MedTechInnovators> ```
 
 2. Navigate to the project directory:
-    cd MedTechInnovators
+``` cd MedTechInnovators ```
 
 3. Run the simulation:
-    python src/generate_data.py
+``` python src/generate_data.py ```
 
 4. Visualize patient flow:
-    python src/visualize_data.py
+``` python src/visualize_data.py ```
 
-# Sample Output
+## Sample Output
 
 - A real-time bar chart showing the distribution of patients across departments.
 
-# Project Structure
+## Project Structure
+
+```
 
 📂 MedTechInnovators
  ├── 📂 src
@@ -61,93 +63,74 @@ The goal is to showcase foundational data management, real-time simulation, and 
  ├── README.md                   # Project documentation
  ├── requirements.txt            # Python dependencies
 
-Key Algorithms
+```
+
+## Key Algorithms
 
 1. Data Generation:
 
-    Randomly generates patient data with unique IDs, timestamps, and assigned departments.
+    - Randomly generates patient data with unique IDs, timestamps, and assigned departments.
 
-    Simulates real-time behavior using Python’s time.sleep().
+    - Simulates real-time behavior using Python’s time.sleep().
 
 2. Data Validation:
 
-    Checks for missing or incorrect patient records.
+    - Checks for missing or incorrect patient records.
 
-    Validates department names and logs invalid entries.
+    - Validates department names and logs invalid entries.
 
-    Outputs clean data for visualization.
+    - Outputs clean data for visualization.
 
 3. Data Visualization:
 
-    Displays patient distribution using bar charts.
+    - Displays patient distribution using bar charts.
 
-    Implements real-time updates for a dynamic view of patient flow.
+    - Implements real-time updates for a dynamic view of patient flow.
 
-Team Contributions
+## Team Contributions
 
-    Person A: System Architecture and Project Setup
+### Person A: System Architecture and Project Setup
+- Designed the overall system architecture.
+- Created the project repository and folder structure.
+- Drafted the initial README.md file and set up dependencies.
 
-    Designed the overall system architecture.
-    
-    Created the project repository and folder structure.
-    
-    Drafted the initial README.md file and set up dependencies.
+### Person B: Data Simulation
+- Developed the script for generating patient flow data.
+- Simulated real-time patient arrivals and department transitions.
+- Created sample data files for testing.
 
-    Person B: Data Simulation
+### Person C: Data Quality Checks
+- Implemented validation rules for missing and inconsistent data.
+- Wrote logic to handle invalid department entries.
+- Ensured clean and reliable data for downstream use.
 
-    Developed the script for generating patient flow data.
+### Person D: Visualization and Output
+- Created real-time visualizations of patient flow.
+- Used bar charts to represent patient distribution across departments.
+- Handled dynamic updates for real-time simulations.
 
-    Simulated real-time patient arrivals and department transitions.
-    
-    Created sample data files for testing.
-    
-    Person C: Data Quality Checks
+### Person E: Documentation and Presentation
+- Coordinated the creation of the pre-recorded video presentation.
+- Compiled technical documentation, including challenges and solutions.
+- Finalized all deliverables for submission.
 
-    Implemented validation rules for missing and inconsistent data.
-    
-    Wrote logic to handle invalid department entries.
-    
-    Ensured clean and reliable data for downstream use.
-    
-    Person D: Visualization and Output
+## Challenges and Solutions
 
-    Created real-time visualizations of patient flow.
+### Challenges:
 
-    Used bar charts to represent patient distribution across departments.
+1. Real-Time Simulation:
+   - Generating realistic data in real-time was initially challenging.
     
-    Handled dynamic updates for real-time simulations.
+2. Data Validation:
+   - Handling invalid or missing fields required robust checks.
     
-    Person E: Documentation and Presentation
+3. Dynamic Visualization:
+   - Updating visualizations in real time while ensuring accuracy.
 
-    Coordinated the creation of the pre-recorded video presentation.
-    
-    Compiled technical documentation, including challenges and solutions.
-    
-    Finalized all deliverables for submission.
+## Solutions:
+1. Used time.sleep() to simulate real-time behavior effectively.
+2. Wrote modular validation functions to handle data inconsistencies.
+3. Leveraged Python libraries like matplotlib for real-time chart updates.
 
-Challenges and Solutions
-
-Challenges:
-
-    Real-Time Simulation:
-        
-        Generating realistic data in real-time was initially challenging.
-    
-    Data Validation:
-        
-        Handling invalid or missing fields required robust checks.
-    
-    Dynamic Visualization:
-    
-    Updating visualizations in real time while ensuring accuracy.
-    
-    Solutions:
-    
-    Used time.sleep() to simulate real-time behavior effectively.
-    
-    Wrote modular validation functions to handle data inconsistencies.
-    
-    Leveraged Python libraries like matplotlib for real-time chart updates.
-
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
