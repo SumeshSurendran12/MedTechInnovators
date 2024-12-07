@@ -87,6 +87,8 @@ The goal is to showcase foundational data management, real-time simulation, and 
 
     - Implements real-time updates for a dynamic view of patient flow.
 
+![Figure_1](https://github.com/user-attachments/assets/4a2decab-aa86-4e28-a092-e3a91d328a93)
+
 ## Team Contributions
 
 ### Person A: System Architecture and Project Setup
