@@ -1,4 +1,4 @@
-### MedTechInnovators: Medical Facility Digital Twin
+# MedTechInnovators: Medical Facility Digital Twin
 
 # Overview
 This project demonstrates a basic digital twin system for simulating and visualizing patient flow through different departments in a medical facility. It incorporates real-time data generation, quality checks, and a simple visualization to track the movement of patients across departments.
