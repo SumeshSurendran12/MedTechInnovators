@@ -5,8 +5,6 @@ This project demonstrates a basic digital twin system for simulating and visuali
 
 The goal is to showcase foundational data management, real-time simulation, and visualization capabilities as a part of understanding and implementing a digital twin system.
 
----
-
 ## Features
 - Real-Time Data Collection: Simulates patient arrivals and movements using Python.
 - Data Quality Checks: Validates patient data for accuracy and flags any inconsistencies.
@@ -22,18 +20,18 @@ The goal is to showcase foundational data management, real-time simulation, and 
 3. Output:
     - Real-time bar charts showing the number of patients in each department.
 
-# System Diagram
+## System Diagram
 
     [ Data Simulation ] → [ Data Validation ] → [ Visualization ]
 
-# Setup Instructions
+## Setup Instructions
 
 1. Install Python 3.8 or higher.
 2. Install the required libraries
 
-    pip install -r requirements.txt
+    ''' pip install -r requirements.txt '''
 
-# How to Run
+## How to Run
 
 1. Clone this repository:
     git clone <https://github.com/SumeshSurendran12/MedTechInnovators>
