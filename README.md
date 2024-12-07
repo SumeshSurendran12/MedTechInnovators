@@ -1,16 +1,18 @@
 # MedTechInnovators: Medical Facility Digital Twin
 
-# Overview
+## Overview
 This project demonstrates a basic digital twin system for simulating and visualizing patient flow through different departments in a medical facility. It incorporates real-time data generation, quality checks, and a simple visualization to track the movement of patients across departments.
 
 The goal is to showcase foundational data management, real-time simulation, and visualization capabilities as a part of understanding and implementing a digital twin system.
 
-# Features
+---
+
+## Features
 - Real-Time Data Collection: Simulates patient arrivals and movements using Python.
 - Data Quality Checks: Validates patient data for accuracy and flags any inconsistencies.
 - Visualization: Provides a graphical representation of patient flow in different departments.
 
-# System Architecture
+## System Architecture
 
 1. Input:
     - Simulated patient data (randomly generated in real time).
@@ -31,7 +33,7 @@ The goal is to showcase foundational data management, real-time simulation, and 
 
     pip install -r requirements.txt
 
-How to Run
+# How to Run
 
 1. Clone this repository:
     git clone <https://github.com/SumeshSurendran12/MedTechInnovators>
@@ -45,11 +47,11 @@ How to Run
 4. Visualize patient flow:
     python src/visualize_data.py
 
-Sample Output
+# Sample Output
 
-A real-time bar chart showing the distribution of patients across departments.
+- A real-time bar chart showing the distribution of patients across departments.
 
-Project Structure
+# Project Structure
 
 📂 MedTechInnovators
  ├── 📂 src
