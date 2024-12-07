@@ -3,7 +3,7 @@ import time
 import pandas as pd
 import os
 
-def generate_patient_data(num_entries=10, valid_departments=None, delay=0, save_to_file=True, file_name="generated_data.csv"):
+def generate_patient_data(num_entries=50, valid_departments=None, delay=0, save_to_file=True, file_name="generated_data.csv"):
     """
     Generates mock patient data for a medical facility.
 
@@ -18,7 +18,7 @@ def generate_patient_data(num_entries=10, valid_departments=None, delay=0, save_
         pd.DataFrame: A DataFrame containing generated patient data.
     """
     if valid_departments is None:
-        valid_departments = ['ER', 'Radiology', 'Surgery', 'Discharge']
+        valid_departments = ['ER', 'Radiology', 'Surgery', 'Discharge', 'Cardiology', 'Oncology', 'Pediatrics']
 
     data = []
     for _ in range(num_entries):
@@ -44,5 +44,5 @@ def generate_patient_data(num_entries=10, valid_departments=None, delay=0, save_
 
 # Example Usage
 if __name__ == "__main__":
-    patient_data = generate_patient_data(num_entries=10, save_to_file=True)
+    patient_data = generate_patient_data(num_entries=50, valid_departments=['ER', 'Radiology', 'Surgery', 'Discharge', 'Cardiology', 'Oncology', 'Pediatrics'], delay=0.5, save_to_file=True)
     print(patient_data)
