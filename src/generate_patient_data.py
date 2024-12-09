@@ -8,17 +8,17 @@ def generate_patient_data(num_entries=50, valid_departments=None, delay=0, save_
     Generates mock patient data for a medical facility.
 
     Parameters:
-        num_entries (int): Number of patient entries to generate.
-        valid_departments (list): Valid department names. Defaults to standard departments.
-        delay (float): Delay between generating each entry to simulate real-time behavior.
-        save_to_file (bool): Whether to save the generated data to a file.
-        file_name (str): Name of the output file.
+        num_entries (int): Number of patient entries to generate. Defaults to 50.
+        valid_departments (list): List of valid department names. If None, defaults to ['ER', 'Radiology', 'Surgery', 'Discharge'].
+        delay (float): Delay in seconds between generating each entry to simulate real-time data generation.
+        save_to_file (bool): Whether to save the generated DataFrame to a CSV file in the 'data' directory.
+        file_name (str): Name of the CSV file where data will be saved.
 
     Returns:
-        pd.DataFrame: A DataFrame containing generated patient data.
+        pd.DataFrame: A DataFrame containing the generated patient data.
     """
     if valid_departments is None:
-        valid_departments = ['ER', 'Radiology', 'Surgery', 'Discharge', 'Cardiology', 'Oncology', 'Pediatrics']
+        valid_departments = ['ER', 'Radiology', 'Surgery', 'Discharge']
 
     data = []
     for _ in range(num_entries):
@@ -30,19 +30,16 @@ def generate_patient_data(num_entries=50, valid_departments=None, delay=0, save_
         if delay > 0:
             time.sleep(delay)
 
-    # Convert to DataFrame
     df = pd.DataFrame(data)
 
-    # Save to file if requested
     if save_to_file:
-        os.makedirs("data", exist_ok=True)  # Create 'data' folder if it doesn't exist
+        os.makedirs("data", exist_ok=True)
         file_path = os.path.join("data", file_name)
         df.to_csv(file_path, index=False)
         print(f"Data saved to {file_path}")
 
     return df
 
-# Example Usage
 if __name__ == "__main__":
-    patient_data = generate_patient_data(num_entries=50, valid_departments=['ER', 'Radiology', 'Surgery', 'Discharge', 'Cardiology', 'Oncology', 'Pediatrics'], delay=0.5, save_to_file=True)
-    print(patient_data)
+    # Example usage: Generate 50 entries and save them to 'generated_data.csv'
+    generate_patient_data()

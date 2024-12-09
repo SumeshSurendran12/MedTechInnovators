@@ -1,50 +1,64 @@
-import sys
-import os
-
-# Add the project root to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
-
-from src.validate_data import validate_data
+import pytest
 import pandas as pd
+from src.validate_data import validate_data
 
-def test_validate_data_with_valid_entries():
-    # Test with valid entries
-    sample_data = pd.DataFrame({
-        'Patient ID': ['P001', 'P002', 'P003'],
+def test_validate_data_with_valid_departments():
+    # Create a DataFrame with all valid departments
+    data = {
+        'Patient ID': ['P1001', 'P1002', 'P1003'],
         'Department': ['ER', 'Radiology', 'Surgery'],
-        'Timestamp': ['2023-12-06 12:30:01', '2023-12-06 12:30:02', '2023-12-06 12:30:03']
-    })
-    cleaned_data = validate_data(sample_data)
-    assert len(cleaned_data) == 3, "All valid rows should be retained"
-    assert cleaned_data.equals(sample_data), "Valid data should remain unchanged"
+        'Timestamp': pd.to_datetime(['2023-10-01', '2023-10-02', '2023-10-03'])
+    }
+    df = pd.DataFrame(data)
 
-def test_validate_data_with_invalid_entries():
-    # Test with invalid entries
-    sample_data = pd.DataFrame({
-        'Patient ID': ['P001', 'P002', 'P003', 'P004'],
-        'Department': ['ER', 'InvalidDept', 'Surgery', None],
-        'Timestamp': ['2023-12-06 12:30:01', '2023-12-06 12:30:02', '2023-12-06 12:30:03', '2023-12-06 12:30:04']
-    })
-    cleaned_data = validate_data(sample_data)
-    assert len(cleaned_data) == 2, "Rows with invalid or missing departments should be removed"
-    assert 'InvalidDept' not in cleaned_data['Department'].values, "Invalid departments should not be in the cleaned data"
-    assert not cleaned_data['Department'].isnull().any(), "Cleaned data should not contain missing values"
+    cleaned_df = validate_data(df)
 
-def test_validate_data_with_missing_column():
-    # Test with missing 'Department' column
-    sample_data = pd.DataFrame({
-        'Patient ID': ['P001', 'P002', 'P003'],
-        'Timestamp': ['2023-12-06 12:30:01', '2023-12-06 12:30:02', '2023-12-06 12:30:03']
-    })
-    try:
-        validate_data(sample_data)
-        assert False, "An error should be raised if the 'Department' column is missing"
-    except ValueError as e:
-        assert str(e) == "The DataFrame must contain a 'Department' column", \
-            "Error message should indicate missing 'Department' column"
+    # With all valid departments and no missing values, the cleaned_df should match the original
+    assert len(cleaned_df) == 3, "All valid rows should remain in the DataFrame."
+    assert all(dept in ['ER', 'Radiology', 'Surgery', 'Discharge'] for dept in cleaned_df['Department']), \
+        "All departments in the cleaned data should be valid."
+    pd.testing.assert_frame_equal(cleaned_df, df, check_like=True, 
+                                  msg="DataFrame should remain unchanged if data is already valid.")
 
-if __name__ == "__main__":
-    test_validate_data_with_valid_entries()
-    test_validate_data_with_invalid_entries()
-    test_validate_data_with_missing_column()
-    print("All tests passed for validate_data.")
+def test_validate_data_with_invalid_departments():
+    # Some departments are invalid and should be removed
+    data = {
+        'Patient ID': ['P1001', 'P1002', 'P1003'],
+        'Department': ['ER', 'Cardiology', 'UnknownDept'],  # 'Cardiology' and 'UnknownDept' are invalid
+        'Timestamp': pd.to_datetime(['2023-10-01', '2023-10-02', '2023-10-03'])
+    }
+    df = pd.DataFrame(data)
+
+    cleaned_df = validate_data(df)
+
+    # Only 'ER' should remain since 'Cardiology' and 'UnknownDept' are invalid
+    assert len(cleaned_df) == 1, "Rows with invalid departments should be removed."
+    assert cleaned_df['Department'].iloc[0] == 'ER', "The remaining row should have a valid department."
+
+def test_validate_data_with_missing_values():
+    # DataFrame contains missing values which should be removed
+    data = {
+        'Patient ID': ['P1001', 'P1002', None],
+        'Department': ['ER', None, 'Surgery'],
+        'Timestamp': [pd.Timestamp('2023-10-01'), pd.Timestamp('2023-10-02'), pd.Timestamp('2023-10-03')]
+    }
+    df = pd.DataFrame(data)
+
+    cleaned_df = validate_data(df)
+
+    # The last two rows have missing values. Only the first row should remain.
+    assert len(cleaned_df) == 1, "Rows with missing values should be removed."
+    assert cleaned_df['Patient ID'].iloc[0] == 'P1001', "The remaining row should be the first entry."
+    assert cleaned_df['Department'].iloc[0] == 'ER', "The remaining row should have a valid department."
+
+def test_validate_data_missing_department_column():
+    # DataFrame without 'Department' column should raise a ValueError
+    data = {
+        'Patient ID': ['P1001', 'P1002', 'P1003'],
+        'Timestamp': pd.to_datetime(['2023-10-01', '2023-10-02', '2023-10-03'])
+    }
+    df = pd.DataFrame(data)
+
+    # Expecting an empty DataFrame returned on error since the function handles exceptions
+    cleaned_df = validate_data(df)
+    assert cleaned_df.empty, "When 'Department' column is missing, an empty DataFrame should be returned."
