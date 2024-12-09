@@ -136,7 +136,7 @@ The goal is to showcase foundational data management, real-time simulation, and 
    - Updating visualizations in real time while ensuring accuracy.
 
 ## Solutions:
-1. Used time.sleep() to simulate real-time behavior effectively.
+1. Used ```time.sleep()``` to simulate real-time behavior effectively.
 2. Wrote modular validation functions to handle data inconsistencies.
 3. Leveraged Python libraries like matplotlib for real-time chart updates.
 
