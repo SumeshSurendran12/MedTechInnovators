@@ -63,9 +63,7 @@ The goal is to showcase foundational data management, real-time simulation, and 
  ├── 📂 tests
  │     ├── test_generate_data.py
  │     ├── test_validate_data.py
- ├── .github
- │     ├── workflows
- │         ├── ci.yml
+ ├── Dockerfile
  ├── README.md
  ├── requirements.txt
  ├── LICENSE
