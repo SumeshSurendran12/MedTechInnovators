@@ -97,27 +97,27 @@ The goal is to showcase foundational data management, real-time simulation, and 
 
 ## Team Contributions
 
-### Person A: System Architecture and Project Setup
+### Sumesh Surendran: System Architecture and Project Setup
 - Designed the overall system architecture.
 - Created the project repository and folder structure.
 - Drafted the initial README.md file and set up dependencies.
 
-### Person B: Data Simulation
+### Muskaan Shahzad: Data Simulation
 - Developed the script for generating patient flow data.
 - Simulated real-time patient arrivals and department transitions.
 - Created sample data files for testing.
 
-### Person C: Data Quality Checks
+### Benjamin Bui-Dang: Data Quality Checks
 - Implemented validation rules for missing and inconsistent data.
 - Wrote logic to handle invalid department entries.
 - Ensured clean and reliable data for downstream use.
 
-### Person D: Visualization and Output
+### Autry Marshall : Visualization and Output
 - Created real-time visualizations of patient flow.
 - Used bar charts to represent patient distribution across departments.
 - Handled dynamic updates for real-time simulations.
 
-### Person E: Documentation and Presentation
+### Shanecia Holden: Documentation and Presentation
 - Coordinated the creation of the pre-recorded video presentation.
 - Compiled technical documentation, including challenges and solutions.
 - Finalized all deliverables for submission.
