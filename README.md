@@ -112,7 +112,7 @@ The goal is to showcase foundational data management, real-time simulation, and 
 - Wrote logic to handle invalid department entries.
 - Ensured clean and reliable data for downstream use.
 
-### Autry Marshall : Visualization and Output
+### Autry Marshall: Visualization and Output
 - Created real-time visualizations of patient flow.
 - Used bar charts to represent patient distribution across departments.
 - Handled dynamic updates for real-time simulations.
