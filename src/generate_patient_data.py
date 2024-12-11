@@ -2,7 +2,9 @@ import random
 import time
 import pandas as pd
 import os
+#from ..src.generate_patient_data import generate_patient_data 
 
+#from  MedTechInnovators.src.generate_patient_data import generate_patient_data
 def generate_patient_data(num_entries=50, valid_departments=None, delay=0, save_to_file=True, file_name="generated_data.csv"):
     """
     Generates mock patient data for a medical facility.

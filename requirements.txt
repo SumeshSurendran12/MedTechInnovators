@@ -1,6 +1,6 @@
 # Core libraries
 pandas==2.0.3        # For data handling and manipulation
-numpy==1.25.0        # For numerical operations
+numpy==1.26.0        # For numerical operations
 matplotlib==3.8.1    # For data visualization
 
 # Optional libraries for enhanced functionality
